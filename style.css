@@ -22,7 +22,6 @@ body {
 
 #display {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -39,7 +38,7 @@ body {
 }
 
 #display li {
-    width: 100px;
+    width: 200px;
     height: auto;
     border: 2px solid black;
     background-color: gray;
