@@ -1,5 +1,7 @@
 let myLibrary = []
 
+const display = document.querySelector('#display');
+
 function book(title, author, numPages, read) {
     this.title = title
     this.author = author
@@ -23,8 +25,14 @@ function addBookToLibrary() {
 }
 
 function displayLibrary() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        let card = document.createElement("li")
+        card.innerHTML = myLibrary[i]
+        display.appendChild(card)
+    }
 
 }
 
 addBookToLibrary();
+displayLibrary();
 console.log(myLibrary);
