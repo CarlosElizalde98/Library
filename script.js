@@ -1,6 +1,10 @@
 let myLibrary = []
 
 const display = document.querySelector('#display');
+const newBook = document.querySelector('#new-button');
+
+newBook.addEventListener('click', addBookToLibrary);
+
 
 function book(title, author, numPages, read) {
     this.title = title
@@ -21,10 +25,12 @@ function addBookToLibrary() {
     let isRead = prompt("Have you read this book yet?", "Read")
     let userInput = new book(bookName, bookAuthor, bookPages, isRead)
     myLibrary.push(userInput.info())
+    displayLibrary()
     
 }
 
 function displayLibrary() {
+    display.innerHTML = ''
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement("li")
         card.innerHTML = myLibrary[i]
@@ -32,7 +38,3 @@ function displayLibrary() {
     }
 
 }
-
-addBookToLibrary();
-displayLibrary();
-console.log(myLibrary);
