@@ -8,7 +8,7 @@ function book(title, author, numPages, read) {
 }
 
 book.prototype.info = function() {
-    let string = `${title} by ${author}, ${numPages}, ${read}`
+    let string = `${this.title} by ${this.author}, ${this.numPages}, ${this.read}`
     return string
 }
 
@@ -18,8 +18,12 @@ function addBookToLibrary() {
     let bookPages = prompt("Please enter how many pages there are:", "Pages")
     let isRead = prompt("Have you read this book yet?", "Read")
     let userInput = new book(bookName, bookAuthor, bookPages, isRead)
-    myLibrary.push(userInput)
+    myLibrary.push(userInput.info())
     
+}
+
+function displayLibrary() {
+
 }
 
 addBookToLibrary();
