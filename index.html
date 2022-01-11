@@ -12,7 +12,20 @@
     <h1>Library</h1>
 </div>
 <div id = "container">
+
     <button id = "new-button">NEW BOOK</button>
+    <form id = "add-book">
+        <label for="title">Enter Title:</label>
+        <input type="text" id="title" name="title" value="Title"><br>
+        <label for="author">Enter Author:</label>
+        <input type="text" id="author" name="author" value="author"><br>
+        <label for="page numbers">Enter number of pages:</label>
+        <input type="text" id="pages" name="pages" value="pages"><br>
+        <label for="read?">Have you read this book yet?:</label>
+        <input type="checkbox" id="read" name="read" value="read"><br>
+        <input type="submit" value="Add Book">
+    </form>
+
     <div id = "display">
         <ul>
         </ul>

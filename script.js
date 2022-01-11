@@ -2,9 +2,24 @@ let myLibrary = []
 
 const display = document.querySelector('#display');
 const newBook = document.querySelector('#new-button');
+const form = document.querySelector('form');
+let readCheckbox = document.getElementById("read")
 
 newBook.addEventListener('click', addBookToLibrary);
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let title = document.getElementById("title").value
+    let author = document.getElementById("author").value
+    let numPages = document.getElementById("pages").value
+    let read = document.getElementById("read").value
+    if (readCheckbox.checked == false) {
+        read = "Not Read Yet"
+    }
+    const newBook = new book(title, author, numPages, read)
+    addBookToLibrary(newBook)
+    form.reset()  
+});
 
 function book(title, author, numPages, read) {
     this.title = title
@@ -14,16 +29,12 @@ function book(title, author, numPages, read) {
 }
 
 book.prototype.info = function() {
-    let string = `${this.title} by ${this.author}, ${this.numPages}, ${this.read}`
+    let string = `${this.title} by ${this.author}, ${this.numPages} pages, ${this.read}`
     return string
 }
 
-function addBookToLibrary() {
-    let bookName = prompt("Please enter a book title:")
-    let bookAuthor = prompt("Please enter an Author Name", "Author")
-    let bookPages = prompt("Please enter how many pages there are:", "Pages")
-    let isRead = prompt("Have you read this book yet?", "Read")
-    let userInput = new book(bookName, bookAuthor, bookPages, isRead)
+function addBookToLibrary(newBook) {
+    let userInput = newBook
     myLibrary.push(userInput.info())
     displayLibrary()
     
