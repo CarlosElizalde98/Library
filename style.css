@@ -31,18 +31,18 @@ body {
     padding: 25px;
 }
 
-#display li, ul {
+#display div {
+    display: flex;
+    flex-direction: column;
     margin: 25px;
-    padding: 20px;
-    list-style-type: none;
-}
-
-#display li {
-    width: 200px;
-    height: auto;
+    padding: 30px;
+    width: auto;
+    height: 200px;
     border: 2px solid black;
     background-color: gray;
 }
+
+
 
 #add-book {
     margin: 20px;
