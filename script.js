@@ -34,15 +34,14 @@ function book(title, author, numPages, read) {
 //Prototype Function that displays book content as a string.
 book.prototype.info = function() {
 
-    let string = [{title: this.title, 
-    author: this.author, 
-    pages:this.numPages,
-    read: this.read, } ]
+    let string = `${this.title}, 
+    ${this.author}, 
+    ${this.numPages} pages,
+    ${this.read} `
     
     return string
 }
 
-//Prototype Function that toggles the read status of a book card.
 book.prototype.toggleRead = function(indexPlace) {
     if (myLibrary[indexPlace].read == "Not Read Yet") {
         myLibrary[indexPlace].read = "Read"
@@ -79,8 +78,8 @@ function displayLibrary() {
             readBtn.innerText = "Read"
             readBtn.value = i
 
-            //Adds Book Content and appends to DOM
-            card.innerHTML = Object.values(myLibrary[i])
+            //Adds Book Content and 
+            card.innerHTML = myLibrary[i].info()
             card.setAttribute("array-place", i)
             display.appendChild(card)
             card.appendChild(removeBtn)
