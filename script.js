@@ -42,6 +42,7 @@ book.prototype.info = function() {
     return string
 }
 
+//Prototype Function that toggles the read status of a book card.
 book.prototype.toggleRead = function(indexPlace) {
     if (myLibrary[indexPlace].read == "Not Read Yet") {
         myLibrary[indexPlace].read = "Read"
@@ -55,7 +56,6 @@ book.prototype.toggleRead = function(indexPlace) {
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook)
     displayLibrary()
-    console.log(myLibrary)
 }
 
 //Parses Array and creates card for display.
@@ -74,10 +74,12 @@ function displayLibrary() {
             removeBtn.innerText = 'Remove'
             removeBtn.value = i
 
+            //Create Read Button
             readBtn.classList.add("read-button")
             readBtn.innerText = "Read"
             readBtn.value = i
 
+            //Adds Book Content and appends to DOM
             card.innerHTML = Object.values(myLibrary[i])
             card.setAttribute("array-place", i)
             display.appendChild(card)
