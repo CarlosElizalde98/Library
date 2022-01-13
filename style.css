@@ -42,7 +42,11 @@ body {
     background-color: gray;
 }
 
-
+.remove-button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ff6666;
+}
 
 #add-book {
     margin: 20px;

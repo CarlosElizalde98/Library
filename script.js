@@ -33,48 +33,77 @@ function book(title, author, numPages, read) {
 
 //Prototype Function that displays book content as a string.
 book.prototype.info = function() {
-    let string = `${this.title} 
-    by ${this.author}, 
-    ${this.numPages} pages, 
-    ${this.read}`
+
+    let string = [{title: this.title, 
+    author: this.author, 
+    pages:this.numPages,
+    read: this.read, } ]
     
     return string
 }
 
+book.prototype.toggleRead = function(indexPlace) {
+    if (myLibrary[indexPlace].read == "Not Read Yet") {
+        myLibrary[indexPlace].read = "Read"
+    }
+    displayLibrary()
+}
+
+
+
 //Adds book info to array and displays it to screen.
 function addBookToLibrary(newBook) {
-    let userInput = newBook
-    myLibrary.push(userInput.info())
+    myLibrary.push(newBook)
     displayLibrary()
+    console.log(myLibrary)
 }
 
 //Parses Array and creates card for display.
 function displayLibrary() {
     display.innerHTML = ''
         for (let i = 0; i < myLibrary.length; i++) {
+
+            //Create Card and Buttons
             let card = document.createElement("div")
             let removeBtn = document.createElement("button")
+            let readBtn = document.createElement("button")
             card.classList.add("library-card")
+
+            //Create Remove Button
             removeBtn.classList.add("remove-button")
             removeBtn.innerText = 'Remove'
             removeBtn.value = i
-            card.innerHTML = myLibrary[i]
+
+            readBtn.classList.add("read-button")
+            readBtn.innerText = "Read"
+            readBtn.value = i
+
+            card.innerHTML = Object.values(myLibrary[i])
             card.setAttribute("array-place", i)
             display.appendChild(card)
             card.appendChild(removeBtn)
-    
-            removeBtn.addEventListener('click',  (e)=> {
+            card.appendChild(readBtn)
+            
+            //Listen for removal of Card from screen
+            removeBtn.addEventListener('click',  ()=> {
                 let bookValue = card.getAttribute('array-place')
-                console.log(bookValue)
                 if (removeBtn.value == bookValue) {
                     removeCard(bookValue)
+                }
+            })
+
+            readBtn.addEventListener('click', ()=> {
+                let bookValue = card.getAttribute('array-place')
+                if (readBtn.value == bookValue) {
+                    myLibrary[bookValue].toggleRead(bookValue)
                 }
             })
     }
 }
 
+//Removes card from Display
 function removeCard(indexPlace) {
     myLibrary.splice(indexPlace, 1)
-    console.log(myLibrary)
     displayLibrary()
 }
+
