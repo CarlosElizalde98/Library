@@ -46,31 +46,6 @@ class Book {
         displayLibrary();
     }
 }
-//Basic Book Constructor
-//function book(title, author, numPages, read) {
-//    this.title = title
-//    this.author = author
-//    this.numPages = numPages
-//    this.read = read
-//}
-
-//Prototype Function that displays book content as a string.
-//book.prototype.info = function() {
-//
-//    let string = `${this.title}, 
-//    ${this.author}, 
-//    ${this.numPages} pages,
-//    ${this.read} `
-//    
-//    return string
-//}
-
-//book.prototype.toggleRead = function(indexPlace) {
-//    if (myLibrary[indexPlace].read == "Not Read Yet") {
-//        myLibrary[indexPlace].read = "Read"
-//    }
-//    displayLibrary()
-//}
 
 
 
