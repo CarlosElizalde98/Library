@@ -1,10 +1,10 @@
-let myLibrary = []
+const myLibrary = []
 
 const display = document.querySelector('#display');
 const newBook = document.querySelector('#new-button');
 const form = document.querySelector('form');
-let readCheckbox = document.getElementById("read");
-let libraryBook = document.querySelector('.library-card')
+const readCheckbox = document.getElementById("read");
+const libraryBook = document.querySelector('.library-card')
 newBook.addEventListener('click', addBookToLibrary);
 
 
@@ -18,36 +18,59 @@ form.addEventListener("submit", (e) => {
     if (readCheckbox.checked == false) {
         read = "Not Read Yet"
     }
-    const newBook = new book(title, author, numPages, read)
+    const newBook = new Book(title, author, numPages, read)
     addBookToLibrary(newBook)
     form.reset()  
 });
+class Book {
+    constructor(title, author, numPages, read)  {
+        this.title = title;
+        this.author = author;
+        this.numPages = numPages;
+        this.read = read;
+    }
 
-//Basic Book Constructor
-function book(title, author, numPages, read) {
-    this.title = title
-    this.author = author
-    this.numPages = numPages
-    this.read = read
+    info() {
+        let string = `${this.title},
+        ${this.author},
+        ${this.numPages} pages,
+        ${this.read}`
+
+        return string;
+    }
+
+    toggleRead(indexPlace) {
+        if (myLibrary[indexPlace].read == "Not Read Yet") {
+            myLibrary[indexPlace].read = "read";
+        }
+        displayLibrary();
+    }
 }
+//Basic Book Constructor
+//function book(title, author, numPages, read) {
+//    this.title = title
+//    this.author = author
+//    this.numPages = numPages
+//    this.read = read
+//}
 
 //Prototype Function that displays book content as a string.
-book.prototype.info = function() {
+//book.prototype.info = function() {
+//
+//    let string = `${this.title}, 
+//    ${this.author}, 
+//    ${this.numPages} pages,
+//    ${this.read} `
+//    
+//    return string
+//}
 
-    let string = `${this.title}, 
-    ${this.author}, 
-    ${this.numPages} pages,
-    ${this.read} `
-    
-    return string
-}
-
-book.prototype.toggleRead = function(indexPlace) {
-    if (myLibrary[indexPlace].read == "Not Read Yet") {
-        myLibrary[indexPlace].read = "Read"
-    }
-    displayLibrary()
-}
+//book.prototype.toggleRead = function(indexPlace) {
+//    if (myLibrary[indexPlace].read == "Not Read Yet") {
+//        myLibrary[indexPlace].read = "Read"
+//    }
+//    displayLibrary()
+//}
 
 
 
