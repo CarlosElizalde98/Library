@@ -43,6 +43,10 @@ body {
     background-color: #f5f5f0 ;
 }
 
+button, input, select {
+    font-family: inherit;
+    font-size: 100%;
+}
 .remove-button {
     margin-top: 20px;
     padding: 10px;
