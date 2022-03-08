@@ -5,11 +5,9 @@ const author = document.getElementById("author");
 const pageNum = document.getElementById("pages");
 const bookTitle = document.getElementById("title");
 
-const titleError = document.querySelector("#title + span.error");
-const authorError = document.querySelector("#author + span.error");
-const pageError = document.querySelector("#pages + span.error");
-
-console.log(titleError);
+const titleError = document.querySelector("#title-error");
+const authorError = document.querySelector("#author-error");
+const pageError = document.querySelector("#page-error");
 
 const form = document.querySelector("form");
 

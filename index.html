@@ -13,8 +13,8 @@
     </div>
     <div id="container">
       <form id="add-book" novalidate>
-        <label for="title"
-          >Enter Title:
+        <label for="title">
+          <span>Enter Title:</span>
           <input
             type="text"
             id="title"
@@ -22,11 +22,11 @@
             placeholder="Title"
             required
           /><br />
-          <span class="error" aria-live="polite"></span>
+          <span class="error" id="title-error" aria-live="polite"></span>
         </label>
 
-        <label for="author"
-          >Enter Author:
+        <label for="author">
+          <span>Enter Author:</span>
           <input
             type="text"
             id="author"
@@ -34,11 +34,11 @@
             placeholder="author"
             required
           /><br />
-          <span class="error" aria-live="polite"></span>
+          <span class="error" id="author-error" aria-live="polite"></span>
         </label>
 
-        <label for="page numbers"
-          >Enter number of pages:
+        <label for="page numbers">
+          <span>Enter number of pages:</span>
           <input
             type="number"
             id="pages"
@@ -46,11 +46,11 @@
             placeholder="pages"
             required
           /><br />
-          <span class="error" aria-live="polite"></span>
+          <span class="error" id="page-error" aria-live="polite"></span>
         </label>
 
-        <label for="read?"
-          >Have you read this book yet?:
+        <label for="read?">
+          <span>Have you read this book yet?:</span>
           <input type="checkbox" id="read" name="read" value="read" /><br />
         </label>
         <input type="submit" value="Add Book" />
