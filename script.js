@@ -43,13 +43,13 @@ pageNum.addEventListener("input", function (event) {
 
 //Listen for submit button and append content to display
 form.addEventListener("submit", (e) => {
-  if (!bookTitle.checkValidity()) {
+  if (!bookTitle.validity.valid) {
     formValidation(bookTitle);
     e.preventDefault();
-  } else if (!author.checkValidity()) {
+  } else if (!author.validity.valid) {
     formValidation(author);
     e.preventDefault();
-  } else if (!pageNum.checkValidity()) {
+  } else if (!pageNum.validity.valid) {
     formValidation(pageNum);
     e.preventDefault();
   } else {
@@ -154,21 +154,23 @@ const formValidation = (item) => {
   const itemName = item.getAttribute("name");
 
   if (itemName === "title") {
-    if (item.validity.isMissing) {
+    if (item.validity.valueMissing) {
       titleError.textContent = "You need to enter a title";
-    } else if (item.validity.typeMismatch) {
+    } else if (item.validity.patternMismatch) {
       titleError.textContent = "Item entered needs to be a title";
     }
     titleError.className = "error active";
   } else if (itemName === "author") {
-    if (item.validity.isMissing) {
+    console.log(itemName);
+    if (item.validity.valueMissing) {
       authorError.textContent = "You need to enter an author";
-    } else if (item.validity.typeMismatch) {
+    } else if (item.validity.patternMismatch) {
       authorError.textContent = "Item entered needs to be author's name";
     }
     author.className = "error active";
   } else if (itemName === "pages") {
-    if (item.validity.isMissing) {
+    console.log(itemName);
+    if (item.validity.valueMissing) {
       pageError.textContent = "You need to enter a page number";
     } else if (item.validity.typeMismatch) {
       pageError.textContent = "You need to enter a number!";

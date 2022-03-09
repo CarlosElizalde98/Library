@@ -88,6 +88,11 @@ input:invalid {
   background-color: #fdd;
 }
 
+input:valid {
+  background-color: white;
+  color: black;
+}
+
 input:focus:invalid {
   outline: none;
 }

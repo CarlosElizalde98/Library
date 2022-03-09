@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Library</title>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div id="navbar">
@@ -19,6 +20,7 @@
             type="text"
             id="title"
             name="title"
+            pattern="^[A-Za-z0-9\s\-_,\.;:()]+$"
             placeholder="Title"
             required
           />
@@ -31,6 +33,7 @@
             type="text"
             id="author"
             name="author"
+            pattern="[a-zA-Z]+ [a-zA-Z]+"
             placeholder="author"
             required
           />
@@ -59,6 +62,5 @@
 
       <div id="display"></div>
     </div>
-    <script src="script.js"></script>
   </body>
 </html>
